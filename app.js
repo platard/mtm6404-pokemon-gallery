@@ -20,3 +20,41 @@ const pokedex = [
     { id: 19, name: 'rattata', caught: false },
     { id: 20, name: 'raticate', caught: false }
   ]
+
+  function App(){
+    
+
+    return (
+      <>
+        <h1 className="gallery-title">Pokemon Gallery</h1>
+        <Gallery items={pokedex}  />
+      </>
+    )
+
+  }
+
+  function Gallery (props) {
+    const [items, setItems] = React.useState(props.items)
+
+    function clickHandler (target) { 
+      setItems( items.map(item => item.id === target.id ? {...item, caught: !item.caught} : item ) )
+      
+    }
+
+    return (
+      <div id="gallery" className="gallery">
+        {items.map( item => 
+          <div key={item.id} 
+                className={item.caught ? "gallery-item caught" : "gallery-item"} 
+                onClick={() => clickHandler(item)}>
+            <img className="gallery-item-image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.id}.png`} alt={item.name} />
+            <h2 className="gallery-item-name">{item.name}</h2>
+          </div>
+          )}
+      </div>
+    )
+
+  }
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(<App />)
