@@ -35,7 +35,7 @@ function Gallery () { }
     root.render(<App />)
 ```
 
-## State
+## State Management
 Inside the Gallery component, create a 'clickHandler' function that toggles the 'caught' property of the clicked item. Because now the state can change, use a 'estate variable' for the items.
 
 1. Create the estate variable
