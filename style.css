@@ -1,54 +1,80 @@
+/* Base styles for the application, setting default font and background */
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
+   /* Light background for a modern look */
+  color: #333; /* Dark text for readability */
 }
 
+body{
+  background-color: #FFCC00;
+}
+
+/* Centered title with a font style similar to Pokedex */
 .gallery-title {
   text-align: center;
-  font-size: 36px;
-  padding: 1rem;
+  font-size: 2.5rem; /* Slightly reduced font size for a modern look */
+  font-weight: 900;
+  color: #ec5656; /* Red color similar to Pokedex theme */
+  padding: 2rem 0;
 }
 
+/* Responsive grid layout for gallery items, inspired by card layout in Pokedex */
 .gallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   padding: 1rem;
 }
 
+/* Style for individual gallery items with a card design inspired by Pokedex */
 .gallery-item {
   position: relative;
-  display: grid;
-
-  border: 1px solid #ccc;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff; /* White background for cards */
+  border: none; /* No border for a modern card look */
+  border-radius: 1rem; /* Rounded corners for the cards */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensures content fits within the rounded corners */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.gallery-item.caught::after {
-  content: "caught!";
-  position: absolute;
-  display: grid;
-  justify-content: center;
-  align-content: center;
+.gallery-item:hover {
+  transform: translateY(-5px); /* Slight raise effect on hover */
+}
 
+/* Overlay for 'caught' Pokémon, ensuring high contrast for readability */
+.gallery-item.caught::after {
+  content: "Caught";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.7); /* Darker overlay for better contrast */
   color: #fff;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+/* Ensuring images are centered within the gallery item */
 .gallery-item img {
-  justify-self: center;
+  width: 100%; /* Full width images for a clean look */
+  height: auto; /* Maintain aspect ratio */
+  /* Alt text should be dynamically provided by the React app for each image */
 }
 
+/* Style for the title of each Pokémon, inspired by Pokedex */
 .gallery-item h2 {
-  background-color: #ccc;
+  font-weight: 900;
+  background-color: #ec5656; /* Red background for the title, like Pokedex */
+  color: #fff; /* White text for the title for contrast */
   text-align: center;
   text-transform: capitalize;
-  padding: 1rem;
+  width: 100%; /* Full width to fit the card layout */
+  padding: 0.5rem;
+  margin-top: auto; /* Pushes the title to the bottom of the card */
 }
-
