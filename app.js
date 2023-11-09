@@ -47,7 +47,7 @@ const pokedex = [
           <div key={item.id} 
                 className={item.caught ? "gallery-item caught" : "gallery-item"} 
                 onClick={() => clickHandler(item)}>
-            <img className="gallery-item-image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`} alt={item.name} />
+            <img className="gallery-item-image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${item.id}.png`} alt={item.name} />
             <h2 className="gallery-item-name">{item.name}</h2>
           </div>
           )}
